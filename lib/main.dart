@@ -19,7 +19,8 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         body: Stack(children: [
           // Positioned(width: double.infinity, height: MediaQuery.of(context).size.height/2, child: Positioned(top: -MediaQuery.of(context).size.height/2 + MediaQuery.of(context).size.width/2 ,left: 0, right: 0, child: BlueContainer(),)),
-          AnimatedAlignExample()
+          AnimatedAlignExample(),
+          
       ],),
       ),
     )
