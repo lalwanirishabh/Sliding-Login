@@ -41,6 +41,10 @@ class _BlueContainerState extends State<BlueContainer> {
   @override
   Widget build(BuildContext context) {
     return 
-          Container(height: MediaQuery.of(context).size.height/2 +50 , decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.only(bottomLeft: Radius.circular(MediaQuery.of(context).size.width/2) , bottomRight: Radius.circular(MediaQuery.of(context).size.width/2))),);
+          Container(height: MediaQuery.of(context).size.height/2 +50 , width: double.infinity, decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.only(bottomLeft: Radius.circular(MediaQuery.of(context).size.width/2) , bottomRight: Radius.circular(MediaQuery.of(context).size.width/2))),
+          child: Stack(children: [
+            Positioned( bottom: 70 , left: MediaQuery.of(context).size.width/2 - 70, child: Text('LOG IN' , style: TextStyle(fontSize: 40 , color: Colors.white),))
+          ]),
+          );
   }
 }

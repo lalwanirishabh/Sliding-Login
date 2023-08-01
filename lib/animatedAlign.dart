@@ -44,14 +44,15 @@ class _AnimatedAlignExampleState extends State<AnimatedAlignExample> {
               height: MediaQuery.of(context).size.height-  MediaQuery.of(context).size.width/2,
               child: AnimatedAlign(
                 alignment: selected ? Alignment.topCenter : Alignment.bottomCenter,
-                duration: const Duration(seconds: 1),
+                duration: const Duration(milliseconds: 500),
                 curve: Curves.fastOutSlowIn,
                 child: BlueContainer()
               ),
             ),
           ),
-          Positioned(top: 100, child: Login()),
-          Positioned(top: 500, child: SignUp()),
+          Positioned(top: 100, left: 40, child: Login()),
+          Positioned(top: 500, left: 40, child: SignUp()),
+          Positioned(top: 500,  child: SignUpText()),
         ]
       ),
     );
@@ -75,7 +76,7 @@ class _LoginState extends State<Login> {
           duration: const Duration(milliseconds: 500),
           // The green box must be a child of the AnimatedOpacity widget.
           child: Container(
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width-80,
             height: 200,
             child: LoginPlaceholder(),
           ),
@@ -102,8 +103,8 @@ class _SignUpState extends State<SignUp> {
           duration: const Duration(milliseconds: 500),
           // The green box must be a child of the AnimatedOpacity widget.
           child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: 200,
+            width: MediaQuery.of(context).size.width-80,
+            height: 250,
             child: SignUpPlaceholder(),
           ),
         ),
@@ -119,12 +120,13 @@ class LoginPlaceholder extends StatelessWidget {
     return Center(child: Column(
                       children: [
                         TextField(
-                        decoration: InputDecoration(labelText: 'Email' , prefixIcon: Icon(Icons.mail), border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)) , filled: true , fillColor: Colors.white), 
+                        decoration: InputDecoration(enabled: visible , labelText: 'Email' , prefixIcon: Icon(Icons.mail), border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)) , filled: true , fillColor: Colors.white), 
                         ),
-                        
+                        SizedBox(height: 10,),
                         TextField(
-                        decoration: InputDecoration(labelText: 'Password' , prefixIcon: Icon(Icons.mail), border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)) , filled: true , fillColor: Colors.white), 
+                        decoration: InputDecoration(enabled: visible, labelText: 'Password' , prefixIcon: Icon(Icons.key), border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)) , filled: true , fillColor: Colors.white), 
                         ),
+                        ElevatedButton(onPressed: (){}, style: ElevatedButton.styleFrom(primary: Colors.white) , child: Text('Log In' , style: TextStyle(color: Colors.blue),))
                         ]
                       ),
                     );
@@ -139,18 +141,38 @@ class SignUpPlaceholder extends StatelessWidget {
     return Center(child: Column(
                       children: [
                         TextField(
-                        decoration: InputDecoration(labelText: 'Email' , prefixIcon: Icon(Icons.mail), border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)) , filled: true , fillColor: Colors.white), 
+                        decoration: InputDecoration( enabled: !visible , labelText: 'Email' , prefixIcon: Icon(Icons.mail), border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)) , filled: true , fillColor: Colors.white), 
                         ),
-                        
+                        SizedBox(height: 10,),
                         TextField(
-                        decoration: InputDecoration(labelText: 'Password' , prefixIcon: Icon(Icons.mail), border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)) , filled: true , fillColor: Colors.white), 
+                        decoration: InputDecoration(enabled: !visible , labelText: 'Password' , prefixIcon: Icon(Icons.key), border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)) , filled: true , fillColor: Colors.white), 
                         ),
-
+                        SizedBox(height: 10,),
                         TextField(
-                        decoration: InputDecoration(labelText: 'Confirm Password' , prefixIcon: Icon(Icons.mail), border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)) , filled: true , fillColor: Colors.white), 
+                        decoration: InputDecoration(enabled: !visible , labelText: 'Confirm Password' , prefixIcon: Icon(Icons.key), border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)) , filled: true , fillColor: Colors.white), 
                         ),
+                        ElevatedButton(onPressed: (){}, child: Text('Sign Up'))
                         ]
                       ),
                     );
+  }
+}
+
+class SignUpText extends StatelessWidget {
+  const SignUpText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: AnimatedOpacity(
+          opacity: visible ? 1.0 : 0.0,
+          duration: const Duration(milliseconds: 500),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: 200,
+            child: Center(child: Text('SIGN UP' , style: TextStyle(fontSize: 40 , color: Colors.blue),))
+          ),
+        ),
+      );
   }
 }
