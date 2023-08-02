@@ -1,6 +1,8 @@
-Flutter UI Design challenges 
-#DAY_9
 # sliding_login
+
+Flutter UI Design challenges #day9
+
+
 A new Flutter project that switches between Login and SignUp with sliding animation.
 
 In this project, I learned about using Animation Align and FadeIn/FadeOut animation in Flutter.
