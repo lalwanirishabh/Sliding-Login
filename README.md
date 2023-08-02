@@ -10,3 +10,9 @@ In this project, I learned about using Animation Align and FadeIn/FadeOut animat
 ![Screenshot](https://github.com/lalwanirishabh/Sliding-Login/assets/98076785/fdf07417-3127-4fcf-ae14-82810bdeb87d)
 
 
+
+
+
+
+https://github.com/lalwanirishabh/Sliding-Login/assets/98076785/b21f9f9f-1355-441b-bfa5-46e9b18aa86b
+
